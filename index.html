@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulary App - SMK R.A KARTINI</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 16px;
+    background: #4a86e8;
+    color: #fff;
+  }
+  .topbar h1 {
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .topbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    background: rgba(255,255,255,0.18);
+    padding: 6px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  .topbar a:hover { background: rgba(255,255,255,0.3); }
+
+  .frame-wrap {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 44px);
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .fallback {
+    display: none;
+    position: absolute;
+    inset: 0;
+    background: #f7f8fa;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+  }
+  .fallback.show { display: flex; }
+  .fallback p {
+    max-width: 420px;
+    color: #444;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .fallback a {
+    background: #4a86e8;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <h1>📚 Vocabulary App — SMK R.A KARTINI</h1>
+    <a id="openNewTab" href="https://script.google.com/a/macros/guru.smk.belajar.id/s/AKfycbyMkFZ9bcP4C_-0NP7mHT7qKUaMBq3UobVC3Db8wqHjsSH_w875UBgHocwumvHCxo-CYw/exec" target="_blank" rel="noopener">Buka di tab baru ↗</a>
+  </div>
+
+  <div class="frame-wrap">
+    <iframe id="appFrame" src="https://script.google.com/a/macros/guru.smk.belajar.id/s/AKfycbyMkFZ9bcP4C_-0NP7mHT7qKUaMBq3UobVC3Db8wqHjsSH_w875UBgHocwumvHCxo-CYw/exec" title="Vocabulary App"
+      allow="clipboard-write" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    <div class="fallback" id="fallbackMsg">
+      <p>
+        Aplikasi belum tampil? Ini biasanya terjadi karena kamu perlu login dulu
+        dengan akun Google sekolah, dan Google tidak mengizinkan halaman login
+        ditampilkan di dalam iframe. Klik tombol di bawah untuk membukanya
+        langsung di tab baru.
+      </p>
+      <a href="https://script.google.com/a/macros/guru.smk.belajar.id/s/AKfycbyMkFZ9bcP4C_-0NP7mHT7qKUaMBq3UobVC3Db8wqHjsSH_w875UBgHocwumvHCxo-CYw/exec" target="_blank" rel="noopener">Buka Aplikasi ↗</a>
+    </div>
+  </div>
+
+  <script>
+    // Kalau iframe gagal dimuat (misal diblokir karena butuh login Google dulu),
+    // tampilkan pesan fallback dengan tombol buka di tab baru.
+    const frame = document.getElementById('appFrame');
+    const fallback = document.getElementById('fallbackMsg');
+    let dimuat = false;
+
+    frame.addEventListener('load', function () {
+      dimuat = true;
+    });
+
+    // Kalau setelah beberapa detik iframe belum sempat "load" sama sekali
+    // (kemungkinan diblokir browser/Google), munculkan fallback.
+    setTimeout(function () {
+      if (!dimuat) fallback.classList.add('show');
+    }, 6000);
+  </script>
+
+</body>
+</html>
