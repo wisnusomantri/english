@@ -89,17 +89,16 @@
 
     <div class="fallback" id="fallbackMsg">
       <p>
-        Aplikasi belum tampil? Ini biasanya terjadi karena kamu perlu login dulu
-        dengan akun Google sekolah, dan Google tidak mengizinkan halaman login
-        ditampilkan di dalam iframe. Klik tombol di bawah untuk membukanya
-        langsung di tab baru.
+        Aplikasi belum tampil? Kemungkinan ada layanan Google tambahan (misalnya Drive/Gmail)
+        yang membuat halaman ini butuh login dulu, dan Google tidak mengizinkan halaman login
+        ditampilkan di dalam iframe. Klik tombol di bawah untuk membukanya langsung di tab baru.
       </p>
       <a href="https://script.google.com/macros/s/AKfycbyMkFZ9bcP4C_-0NP7mHT7qKUaMBq3UobVC3Db8wqHjsSH_w875UBgHocwumvHCxo-CYw/exec" target="_blank" rel="noopener">Buka Aplikasi ↗</a>
     </div>
   </div>
 
   <script>
-    // Kalau iframe gagal dimuat (misal diblokir karena butuh login Google dulu),
+    // Kalau iframe gagal dimuat (misal diblokir karena butuh login Google dulu atau X-Frame-Options),
     // tampilkan pesan fallback dengan tombol buka di tab baru.
     const frame = document.getElementById('appFrame');
     const fallback = document.getElementById('fallbackMsg');
